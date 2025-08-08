@@ -29,6 +29,7 @@ public class FilmeSerieController : ControllerBase
 
         return await _context.FilmeSeries
             .ProjectTo<FilmeSerieDTO>(_mapper.ConfigurationProvider)
+            .OrderBy(fs => fs.Titulo)
             .ToListAsync();
     }
 
