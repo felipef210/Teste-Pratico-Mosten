@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "MoviesMostenAPI.Controllers.MovieShowController",
+    "Method": "Get",
+    "RelativePath": "api/MovieShow",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
