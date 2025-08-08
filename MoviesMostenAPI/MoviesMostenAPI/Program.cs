@@ -15,6 +15,8 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 // Add services to the container.
 
 builder.Services.AddDbContext<FilmeSerieContext>(options => options.UseNpgsql(connString));
