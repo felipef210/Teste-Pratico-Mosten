@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MoviesMostenAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class listaDeGeneros : Migration
+    public partial class AjusteGeneroParaArray : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -45,6 +45,14 @@ namespace MoviesMostenAPI.Migrations
                 keyValue: 5,
                 column: "Genero",
                 value: new List<string> { "Ação", "Crime" });
+
+            migrationBuilder.Sql(@"
+                ALTER TABLE ""FilmeSeries"" 
+                ALTER COLUMN ""Genero"" TYPE text[] 
+                USING string_to_array(
+                    trim(both '{}' from ""Genero""), ','
+                );
+            ");
         }
 
         /// <inheritdoc />
@@ -84,6 +92,12 @@ namespace MoviesMostenAPI.Migrations
                 keyValue: 5,
                 column: "Genero",
                 value: new List<string> { "Ação", "Crime" });
+
+            migrationBuilder.Sql(@"
+                ALTER TABLE ""FilmeSeries"" 
+                ALTER COLUMN ""Genero"" TYPE text
+                USING array_to_string(""Genero"", ',');
+            ");
         }
     }
 }

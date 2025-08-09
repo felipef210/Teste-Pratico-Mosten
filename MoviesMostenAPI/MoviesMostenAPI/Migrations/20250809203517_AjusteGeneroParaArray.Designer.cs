@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MoviesMostenAPI.Migrations
 {
     [DbContext(typeof(FilmeSerieContext))]
-    [Migration("20250809194123_listaDeGeneros")]
-    partial class listaDeGeneros
+    [Migration("20250809203517_AjusteGeneroParaArray")]
+    partial class AjusteGeneroParaArray
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -102,7 +102,7 @@ namespace MoviesMostenAPI.Migrations
                         new
                         {
                             Id = 5,
-                            Descricao = "John Wick é uma franquia de mídia de suspense e ação neo-noir americana criada pelo roteirista Derek Kolstad e estrelada por Keanu Reeves como John Wick, um ex-assassino que é forçado a voltar ao submundo do crime que havia abandonado.",
+                            Descricao = "John Wick é um lendário assassino de aluguel aposentado, lidando com o luto após perder o grande amor de sua vida. Quando um gângster invade sua casa, mata seu cachorro e rouba seu carro, ele é forçado a voltar à ativa e inicia sua vingança.",
                             Genero = new List<string> { "Ação", "Crime" },
                             Gostei = 23,
                             Imagem = "https://m.media-amazon.com/images/I/71+k2-r7vQL._UF894,1000_QL80_.jpg",
