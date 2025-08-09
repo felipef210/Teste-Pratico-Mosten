@@ -13,7 +13,7 @@ public class FilmeSerie
     public required string Titulo { get; set; }
 
     [Required(ErrorMessage = "Você deve preencher o {0}")]
-    public required string Genero { get; set; }
+    public required List<string> Genero { get; set; }
 
     public string? Descricao { get; set; }
 

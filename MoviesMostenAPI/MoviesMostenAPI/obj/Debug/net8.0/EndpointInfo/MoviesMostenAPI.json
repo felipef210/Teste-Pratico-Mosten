@@ -228,7 +228,10 @@
             "nullable": true
           },
           "genero": {
-            "type": "string",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
           "descricao": {
@@ -259,7 +262,10 @@
             "nullable": true
           },
           "genero": {
-            "type": "string",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
           "descricao": {
