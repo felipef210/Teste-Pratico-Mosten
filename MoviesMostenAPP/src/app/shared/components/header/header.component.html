@@ -1,0 +1,17 @@
+<header class="header">
+  <figure class="logo">
+    <img src="mosten-logo.png" alt="Logo">
+  </figure>
+
+  <button class="menu-toggle" (click)="menuOpen = !menuOpen" aria-label="Abrir menu">
+    <i class="fa-solid fa-bars menu-icon" [class.icon-active]="!menuOpen" [class.icon-hide]="menuOpen"></i>
+    <i class="fa-solid fa-xmark menu-icon" [class.icon-active]="menuOpen" [class.icon-hide]="!menuOpen"></i>
+  </button>
+
+  <div class="spacer"></div>
+
+  <ul [class.open]="menuOpen">
+    <li><a routerLink="/" (click)="menuOpen = false"><i class="fa-solid fa-house"></i>Home</a></li>
+    <li><a routerLink="/criar" (click)="menuOpen = false"><i class="fa-solid fa-film"></i>Adicionar filme</a></li>
+  </ul>
+</header>

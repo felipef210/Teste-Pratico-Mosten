@@ -1,0 +1,65 @@
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  color: #612CB5;
+}
+
+h2 {
+  margin: 0 -.5rem;
+  color: #803DE0;
+}
+
+form {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+form input {
+  width: 25rem;
+  padding: 10px;
+  border-radius: 1rem;
+  font-size: 16px;
+  border: 2px solid #803DE0;
+  box-shadow: 0 4px 20px 0 rgba(98, 44, 181, 0.35), 0 1.5px 8px 0 rgba(0,0,0,0.18);
+  background-image: url('/lupa.png');
+  background-position: right 10px center;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+}
+
+form input:focus {
+  border-color: #803DE0;
+  outline: none;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  form input {
+    width: 80%;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+}

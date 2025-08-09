@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<main class="container">
+  <h1>Bem-vindo(a) ao <br>Mosten Movies & Series!</h1>
+  <h2>Seu site para gerenciar filmes e séries.</h2>
+
+  <form>
+    <input type="text" placeholder="Pesquisar filme ou série..." class="search-input">
+  </form>
+
+  <div class="cards">
+    @for (item of items; track $index) {
+      <app-card-filme [model]="item"></app-card-filme>
+    }
+  </div>
+</main>
+
+<app-footer></app-footer>

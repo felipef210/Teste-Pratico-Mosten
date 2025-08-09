@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MoviesMostenAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec87dfc6c8b33dacbdd11644ab22fba686d49091")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20c246bbe8351960655146dd7321ecc358ee23c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("MoviesMostenAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MoviesMostenAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
