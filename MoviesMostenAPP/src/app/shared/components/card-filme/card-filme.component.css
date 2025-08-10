@@ -73,7 +73,7 @@
 
 .genre-chip {
   display: inline;
-  background-color: #803DE0;
+  background: linear-gradient(90deg, #612CB5 60%, #803DE0 100%);
   color: white;
   padding: 0.2rem 0.5rem;
   border-radius: 12px;

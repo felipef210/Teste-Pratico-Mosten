@@ -72,6 +72,29 @@ li a {
   text-decoration: none;
   cursor: pointer;
   color: white;
+  position: relative;
+  padding-bottom: 0.2rem;
+  transition: color 0.2s;
+}
+
+li a.active {
+  color: #ebe4f7;
+}
+
+.menu-underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 3px;
+  background-color: #ebe4f7;
+  border-radius: 2px;
+  animation: underlineIn 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes underlineIn {
+  from { width: 0; opacity: 0; }
+  to { width: 100%; opacity: 1; }
 }
 
 @media (max-width: 768px) {
@@ -120,6 +143,10 @@ li a {
   }
 
   ul li i {
+    display: none;
+  }
+
+  .menu-underline {
     display: none;
   }
 }
