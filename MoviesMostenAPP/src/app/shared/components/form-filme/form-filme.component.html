@@ -1,1 +1,63 @@
-<p>form-filme works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <h2>Adicionar Filme ou Série</h2>
+
+    <div class="form-columns">
+      <div class="form-column">
+        <div class="form-group">
+          <label for="title">Título*</label><br>
+          <input type="text" id="title" name="title"
+           [formControl]="form.controls.titulo" (focus)="isTituloFocused = true" (blur)="isTituloFocused = false">
+          @if (form.controls.titulo.getError('required') && form.controls.titulo.dirty && !isTituloFocused) {
+            <span class="error-message">O título é obrigatório.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="description">Descrição</label><br>
+          <textarea id="description" name="description" [formControl]="form.controls.descricao"></textarea>
+        </div>
+      </div>
+
+      <div class="form-column">
+        <div class="form-group">
+          <label for="url">URL da Imagem*</label><br>
+          <input type="text" id="url" name="url"
+          [formControl]="form.controls.urlImagem" (focus)="isImagemFocused = true" (blur)="isImagemFocused = false">
+          @if (form.controls.urlImagem.getError('required') && form.controls.urlImagem.dirty && !isImagemFocused) {
+            <span class="error-message">A URL da imagem é obrigatória.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="genero">Gêneros*</label><br>
+          <div class="genero-input">
+            <input type="text" id="genero" [formControl]="form.controls.generoInput"
+             placeholder="Digite o gênero" (focus)="isGeneroFocused = true" (blur)="isGeneroFocused = false">
+            <button type="button" class="add-genero-button" (click)="addGenero()">+</button>
+          </div>
+
+          @if (form.controls.genero.getError('required') && form.controls.generoInput.dirty && !isGeneroFocused) {
+            <span class="error-message">O gênero é obrigatório.</span>
+          }
+
+          @if (generos.controls.length > 0) {
+            <ul class="generos-list">
+              @for (genero of generos.controls; track $index) {
+                <li>
+                  {{ genero.value }}
+                  <button type="button" class="btn-chip" (click)="removeGenero($index)" aria-label="Remover gênero">&times;</button>
+                </li>
+              }
+            </ul>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button type="submit" [disabled]="form.invalid">Adicionar Filme</button>
+      <button type="reset" (click)="removeAllGeneros()">Limpar</button>
+    </div>
+  </fieldset>
+</form>

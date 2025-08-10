@@ -2,6 +2,13 @@
   <img [src]="model.imagem" alt="{{ model.titulo }}" class="card-img">
   <div class="card-body">
     <h3 class="card-title">{{ model.titulo }}</h3>
-    <a [routerLink]="['/detalhes', model.id]" class="card-link">Ver detalhes</a>
+    @for (genero of model.genero; track $index) {
+      <ul class="genres">
+        <li class="genre-chip">{{ genero }}</li>
+      </ul>
+    }
+    <div class="button-section">
+      <a [routerLink]="['/detalhes', model.id]" class="card-link">Ver detalhes</a>
+    </div>
   </div>
 </div>

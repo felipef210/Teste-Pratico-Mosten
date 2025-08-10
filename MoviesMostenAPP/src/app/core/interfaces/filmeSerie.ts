@@ -10,7 +10,7 @@ export interface FilmeSerieDTO {
 
 export interface CriarFilmeSerieDTO {
   titulo: string;
-  genero: string;
+  genero: string[];
   descricao: string;
   imagem: string;
 }

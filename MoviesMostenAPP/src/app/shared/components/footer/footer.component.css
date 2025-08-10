@@ -24,6 +24,7 @@
   height: auto;
   display: block;
   margin-bottom: 0.5rem;
+  margin-left: -1rem;
 }
 
 .logo-section .project-text {
@@ -41,20 +42,23 @@
 .contacts-section .icons {
   display: flex;
   gap: .5rem;
+  margin-left: -.3rem;
 }
 
-.contacts-section .icons a {
+.contacts-section .icons a i {
   color: white;
   font-size: 2rem;
-  animation: transition;
+  transition: color .3s;
 }
 
 .contacts-section .icons a:hover .fa-whatsapp {
   color: #25D366;
 }
+
 .contacts-section .icons a:hover .fa-linkedin {
   color: #0077B5;
 }
+
 .contacts-section .icons a:hover .fa-github {
   color: #a5a5a5;
 }
@@ -71,7 +75,6 @@
   font-size: 0.85rem;
   color: white;
 }
-
 
 @media (max-width: 768px) {
   .footer-content {

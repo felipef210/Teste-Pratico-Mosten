@@ -1,12 +1,16 @@
-<app-header></app-header>
-
 <main class="container">
   <h1>Bem-vindo(a) ao <br>Mosten Movies & Series!</h1>
-  <h2>Seu site para gerenciar filmes e séries.</h2>
+  <h2>Seu site para gerenciar e avaliar filmes e séries.</h2>
 
   <form>
     <input type="text" placeholder="Pesquisar filme ou série..." class="search-input">
   </form>
+
+  <div class="avaliacoes">
+    <span>Total de avaliações: <strong>{{ totalAvaliacoes }}</strong></span>
+    <span>Total de curtidas: <strong>{{ totalCurtidas }}</strong></span>
+    <span>Total de descurtidas: <strong>{{ totalDescurtidas }}</strong></span>
+  </div>
 
   <div class="cards">
     @for (item of items; track $index) {
@@ -14,5 +18,3 @@
     }
   </div>
 </main>
-
-<app-footer></app-footer>
