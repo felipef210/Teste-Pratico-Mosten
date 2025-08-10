@@ -56,6 +56,7 @@ public class FilmeSerieController : ControllerBase
 
         var resultado = await query
             .ProjectTo<FilmeSerieDTO>(_mapper.ConfigurationProvider)
+            .OrderBy(fs => fs.Titulo)
             .ToListAsync();
 
         return Ok(resultado);
