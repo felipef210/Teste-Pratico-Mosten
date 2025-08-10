@@ -131,6 +131,7 @@ li {
   font-weight: bold;
   padding: .2rem .5rem;
   margin-right: .3rem;
+  margin-bottom: .3rem;
 }
 
 button[type="submit"] {
