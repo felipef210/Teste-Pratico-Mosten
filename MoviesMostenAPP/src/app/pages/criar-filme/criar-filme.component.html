@@ -1,4 +1,7 @@
 <main class="container">
   <app-form-filme (criarFilme)="onSubmit($event)"></app-form-filme>
+  @if (errorMsg) {
+    <div class="erro-msg">{{ errorMsg }}</div>
+  }
   <div class="spacer"></div>
 </main>

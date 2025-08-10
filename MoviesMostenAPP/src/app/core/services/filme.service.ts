@@ -44,4 +44,8 @@ export class FilmeService {
   public getTotalDescurtidas(): Observable<number> {
     return this.http.get<number>(`${this.url}/votos-negativos`);
   }
+
+  public filtro(titulo: string): Observable<FilmeSerieDTO[]> {
+    return this.http.get<FilmeSerieDTO[]>(`${this.url}/filtro`, { params: { titulo } });
+  }
 }

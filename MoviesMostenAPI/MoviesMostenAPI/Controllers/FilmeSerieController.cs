@@ -46,6 +46,21 @@ public class FilmeSerieController : ControllerBase
         return Ok(filmeSerie);
     }
 
+    [HttpGet("filtro")]
+    public async Task<ActionResult<List<FilmeSerieDTO>>> GetFiltered(string titulo)
+    {
+        var query = _context.FilmeSeries.AsQueryable();
+
+        if (!string.IsNullOrEmpty(titulo))
+            query = query.Where(fs => fs.Titulo.ToLower().Contains(titulo.ToLower()));
+
+        var resultado = await query
+            .ProjectTo<FilmeSerieDTO>(_mapper.ConfigurationProvider)
+            .ToListAsync();
+
+        return Ok(resultado);
+    }
+
     [HttpGet("total-votos")]
     public async Task<IActionResult> GetTodosOsVotos()
     {

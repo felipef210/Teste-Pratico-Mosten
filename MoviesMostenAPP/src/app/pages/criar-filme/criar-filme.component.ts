@@ -14,13 +14,15 @@ export class CriarFilmeComponent {
   private filmeService = inject(FilmeService);
   private router = inject(Router);
 
+  errorMsg: string | null = null;
+
   onSubmit(dto: CriarFilmeSerieDTO) {
     this.filmeService.post(dto).subscribe({
       next: () => {
         this.router.navigate(['/'])
       },
-      error: err => {
-        console.error('Erro ao criar filme/serie', err);
+      error: () => {
+        this.errorMsg = 'Erro ao criar o filme ou série. Tente novamente.';
       }
     });
 

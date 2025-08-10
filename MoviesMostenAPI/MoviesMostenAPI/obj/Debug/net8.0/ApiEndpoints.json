@@ -90,6 +90,32 @@
   },
   {
     "ContainingType": "MoviesMostenAPI.Controllers.FilmeSerieController",
+    "Method": "GetFiltered",
+    "RelativePath": "api/FilmeSerie/filtro",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "titulo",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[MoviesMostenAPI.DTOs.FilmeSerieDTO, MoviesMostenAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MoviesMostenAPI.Controllers.FilmeSerieController",
     "Method": "Like",
     "RelativePath": "api/FilmeSerie/like/{id}",
     "HttpMethod": "POST",

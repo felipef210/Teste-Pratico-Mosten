@@ -1,27 +1,30 @@
 <main class="container">
   <div class="filmeSerie-details">
-    <aside>
-      <figure class="filmeSerie-poster">
-        <img [src]="filmeSerie.imagem" alt="{{ filmeSerie.titulo }}">
-      </figure>
-    </aside>
-    <div class="filmeSerie-info">
-      <h2>{{ filmeSerie.titulo }}</h2>
-      <ul class="generos-list">
-        @for (genero of filmeSerie.genero; track $index) {
-          <li class="genero-chip">{{ genero }}</li>
+    @if (filmeSerie) {
+      <aside>
+        <figure class="filmeSerie-poster">
+          <img [src]="filmeSerie.imagem" alt="{{ filmeSerie.titulo }}">
+        </figure>
+      </aside>
+      <div class="filmeSerie-info">
+        <h2>{{ filmeSerie.titulo }}</h2>
+        <ul class="generos-list">
+          @for (genero of filmeSerie.genero; track $index) {
+            <li class="genero-chip">{{ genero }}</li>
+          }
+        </ul>
+        <div class="filmeSerie-actions">
+          <button class="btn-like" (click)="curtirFilme()" title="Curtir"></button>
+          <span class="like-count"><strong>{{ filmeSerie.gostei }} pessoas gostaram</strong></span>
+          <button class="btn-dislike" (click)="descurtirFilme()" title="Não curtir"></button>
+          <span class="dislike-count"><strong>{{ filmeSerie.naoGostei }} pessoas não gostaram</strong></span>
+        </div>
+        @if (errorMsg) {
+          <div class="erro-msg">{{ errorMsg }}</div>
         }
-      </ul>
-      <div class="filmeSerie-actions">
-        <button class="btn-like" (click)="curtirFilme()" title="Curtir"></button>
-        <span class="like-count"><strong>{{ filmeSerie.gostei }} pessoas gostaram</strong></span>
-        <button class="btn-dislike" (click)="descurtirFilme()" title="Não curtir"></button>
-        <span class="dislike-count"><strong>{{ filmeSerie.naoGostei }} pessoas não gostaram</strong></span>
+        <p><strong>Descrição:</strong> {{ filmeSerie.descricao }}</p>
+
       </div>
-      @if (errorMsg) {
-        <div class="erro-msg">{{ errorMsg }}</div>
-      }
-      <p><strong>Descrição:</strong> {{ filmeSerie.descricao }}</p>
-    </div>
+    }
   </div>
 </main>
