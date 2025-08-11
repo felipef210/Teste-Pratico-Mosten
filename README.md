@@ -60,7 +60,7 @@ MoviesMostenAPP/   # Frontend Angular
 ## 💡 Observações
 - Certifique-se de que o backend esteja rodando antes de acessar o frontend;
 - As configurações de conexão estão em `appsettings.json`;
-- Os contadores de avaliações gerais (total de avaliações, total de avaliações positivas e total de avaliações negativas) estão disponíveis na *home page*, já os contadores individuais de cada registro está presente na sua respectiva página de detalhes.
+- Os contadores de avaliações gerais (total de avaliações, total de avaliações positivas e total de avaliações negativas) estão disponíveis na *home page*, já os contadores individuais de cada registro estão presentes na sua respectiva página de detalhes.
 
 ---
 
