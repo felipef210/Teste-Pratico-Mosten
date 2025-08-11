@@ -43,6 +43,7 @@ MoviesMostenAPP/   # Frontend Angular
 1. Navegue até `MoviesMostenAPI/`
 2. Execute:
    ```bash
+   dotnet ef database update
    dotnet run
    ```
 
@@ -60,6 +61,7 @@ MoviesMostenAPP/   # Frontend Angular
 ## 💡 Observações
 - Certifique-se de que o backend esteja rodando antes de acessar o frontend;
 - As configurações de conexão estão em `appsettings.json`;
+- Apenas após executar o comando ```dotnet ef database update``` que será possível acessar os 5 dados iniciais que foram pedidos no enunciado;
 - Os contadores de avaliações gerais (total de avaliações, total de avaliações positivas e total de avaliações negativas) estão disponíveis na *home page*, já os contadores individuais de cada registro estão presentes na sua respectiva página de detalhes.
 
 ---
