@@ -21,7 +21,7 @@
   flex-direction: row-reverse;
 }
 
-.button-group button {
+.button-group button:not(:last-child) {
   margin-left: 1rem;
 }
 
@@ -175,5 +175,26 @@ button[type="reset"]:hover {
   .form-columns {
     flex-direction: column;
     gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  form {
+    width: 293px;
+    margin: 1rem auto;
+    padding: 0;
+  }
+
+  fieldset {
+    width: 50%;
+    padding: 1rem 1.5rem;
+  }
+
+  button[type="submit"] {
+    font-size: 16px;
+  }
+
+  button[type="reset"] {
+    font-size: 16px;
   }
 }

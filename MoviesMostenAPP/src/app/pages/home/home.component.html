@@ -12,11 +12,17 @@
     <span>Total de descurtidas: <strong>{{ totalDescurtidas }}</strong></span>
   </section>
 
-  <section class="cards">
-    @for (item of items; track $index) {
-      <app-card-filme [model]="item"></app-card-filme>
-    }
-  </section>
+  @if (items.length > 0) {
+    <section class="cards">
+      @for (item of items; track $index) {
+        <app-card-filme [model]="item"></app-card-filme>
+      }
+    </section>
+  }
+
+  @else {
+    <h2 style="margin: 2rem 0;">Não há itens para exibir</h2>
+  }
 
   <section class="btn-reset-section">
     <button type="button" (click)="isModalOpen = !isModalOpen">Resetar</button>
