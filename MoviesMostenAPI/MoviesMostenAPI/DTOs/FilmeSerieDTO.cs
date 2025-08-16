@@ -11,4 +11,5 @@ public class FilmeSerieDTO
     public required string Imagem { get; set; }
     public int Gostei { get; set; }
     public int NaoGostei { get; set; }
+    public decimal Aprovacao { get; set; }
 }

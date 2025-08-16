@@ -97,8 +97,18 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "titulo",
+        "Name": "Titulo",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Genero",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TopAvaliacoes",
+        "Type": "System.Boolean",
         "IsRequired": false
       }
     ],
@@ -128,6 +138,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MoviesMostenAPI.Controllers.FilmeSerieController",
+    "Method": "ResetVotos",
+    "RelativePath": "api/FilmeSerie/reset-votos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

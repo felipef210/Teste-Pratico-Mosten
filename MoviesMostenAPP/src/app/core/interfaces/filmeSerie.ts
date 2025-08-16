@@ -6,6 +6,7 @@ export interface FilmeSerieDTO {
   imagem: string;
   gostei: number;
   naoGostei: number;
+  aprovacao: number;
 }
 
 export interface CriarFilmeSerieDTO {

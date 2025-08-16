@@ -22,7 +22,6 @@ D:\Estudos Programação\projetos\Mosten\MoviesMostenAPI\MoviesMostenAPI\obj\Deb
 D:\Estudos Programação\projetos\Mosten\MoviesMostenAPI\MoviesMostenAPI\obj\Debug\net8.0\staticwebassets.build.json.cache
 D:\Estudos Programação\projetos\Mosten\MoviesMostenAPI\MoviesMostenAPI\obj\Debug\net8.0\staticwebassets.development.json
 D:\Estudos Programação\projetos\Mosten\MoviesMostenAPI\MoviesMostenAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-D:\Estudos Programação\projetos\Mosten\MoviesMostenAPI\MoviesMostenAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Estudos Programação\projetos\Mosten\MoviesMostenAPI\MoviesMostenAPI\obj\Debug\net8.0\MoviesMo.028A2F57.Up2Date
 D:\Estudos Programação\projetos\Mosten\MoviesMostenAPI\MoviesMostenAPI\obj\Debug\net8.0\MoviesMostenAPI.dll
 D:\Estudos Programação\projetos\Mosten\MoviesMostenAPI\MoviesMostenAPI\obj\Debug\net8.0\refint\MoviesMostenAPI.dll

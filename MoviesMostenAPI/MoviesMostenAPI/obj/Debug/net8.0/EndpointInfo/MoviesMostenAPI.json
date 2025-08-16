@@ -137,10 +137,24 @@
         ],
         "parameters": [
           {
-            "name": "titulo",
+            "name": "Titulo",
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Genero",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "TopAvaliacoes",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -258,6 +272,18 @@
           }
         }
       }
+    },
+    "/api/FilmeSerie/reset-votos": {
+      "post": {
+        "tags": [
+          "FilmeSerie"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -330,6 +356,10 @@
           "naoGostei": {
             "type": "integer",
             "format": "int32"
+          },
+          "aprovacao": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false

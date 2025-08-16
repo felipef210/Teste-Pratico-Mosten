@@ -6,13 +6,16 @@
           <img [src]="filmeSerie.imagem" alt="{{ filmeSerie.titulo }}">
         </figure>
       </aside>
-      <div class="filmeSerie-info">
+      <section class="filmeSerie-info">
         <h2>{{ filmeSerie.titulo }}</h2>
         <ul class="generos-list">
           @for (genero of filmeSerie.genero; track $index) {
             <li class="genero-chip">{{ genero }}</li>
           }
         </ul>
+
+        <span class="aprovacao"><strong>Aprovação:</strong> <span class="numero">{{ filmeSerie.aprovacao }}%</span></span>
+
         <div class="filmeSerie-actions">
           <button class="btn-like" (click)="curtirFilme()" title="Curtir"></button>
           <span class="like-count"><strong>{{ filmeSerie.gostei }} pessoas gostaram</strong></span>
@@ -23,8 +26,7 @@
           <div class="erro-msg">{{ errorMsg }}</div>
         }
         <p><strong>Descrição:</strong> {{ filmeSerie.descricao }}</p>
-
-      </div>
+      </section>
     }
   </div>
 </main>

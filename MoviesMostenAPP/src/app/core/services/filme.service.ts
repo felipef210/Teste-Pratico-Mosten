@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { CriarFilmeSerieDTO, FilmeSerieDTO } from '../interfaces/filmeSerie';
 import { Observable } from 'rxjs';
+import { buildQueryParams } from '../../shared/functions/buildQueryParams';
+import { FiltroDTO } from '../interfaces/filtroDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +47,12 @@ export class FilmeService {
     return this.http.get<number>(`${this.url}/votos-negativos`);
   }
 
-  public filtro(titulo: string): Observable<FilmeSerieDTO[]> {
-    return this.http.get<FilmeSerieDTO[]>(`${this.url}/filtro`, { params: { titulo } });
+  public filtro(filtro: FiltroDTO): Observable<FilmeSerieDTO[]> {
+    const queryParams = buildQueryParams(filtro);
+    return this.http.get<FilmeSerieDTO[]>(`${this.url}/filtro`, { params:  queryParams });
+  }
+
+  public resetVotos(): Observable<void> {
+    return this.http.post<void>(`${this.url}/reset-votos`, {});
   }
 }

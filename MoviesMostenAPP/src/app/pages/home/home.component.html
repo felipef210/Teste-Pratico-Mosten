@@ -2,19 +2,27 @@
   <h1>Bem-vindo(a) ao <br>Mosten Movies & Series!</h1>
   <h2>Seu site para gerenciar e avaliar filmes e séries.</h2>
 
-  <form [formGroup]="form">
-    <input type="text" placeholder="Pesquisar filme ou série..." class="search-input" [formControl]=form.controls.search/>
-  </form>
+  <section class="filtro">
+    <app-filtro-filmes (filtroChange)="filtro($event)"></app-filtro-filmes>
+  </section>
 
-  <div class="avaliacoes">
+  <section class="avaliacoes">
     <span>Total de avaliações: <strong>{{ totalAvaliacoes }}</strong></span>
     <span>Total de curtidas: <strong>{{ totalCurtidas }}</strong></span>
     <span>Total de descurtidas: <strong>{{ totalDescurtidas }}</strong></span>
-  </div>
+  </section>
 
-  <div class="cards">
+  <section class="cards">
     @for (item of items; track $index) {
       <app-card-filme [model]="item"></app-card-filme>
     }
-  </div>
+  </section>
+
+  <section class="btn-reset-section">
+    <button type="button" (click)="isModalOpen = !isModalOpen">Resetar</button>
+  </section>
+
+  @if (isModalOpen) {
+    <app-modal (btnSim)="resetarVotos()" (btnNao)="isModalOpen = !isModalOpen"></app-modal>
+  }
 </main>

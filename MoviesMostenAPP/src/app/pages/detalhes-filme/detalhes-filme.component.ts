@@ -1,4 +1,4 @@
-import { Component, inject, Input, numberAttribute, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FilmeSerieDTO } from '../../core/interfaces/filmeSerie';
 import { FilmeService } from '../../core/services/filme.service';

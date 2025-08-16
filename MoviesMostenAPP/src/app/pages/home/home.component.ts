@@ -3,47 +3,41 @@ import { FilmeSerieDTO } from '../../core/interfaces/filmeSerie';
 import { CardFilmeComponent } from "../../shared/components/card-filme/card-filme.component";
 import { FilmeService } from '../../core/services/filme.service';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { debounce, debounceTime } from 'rxjs';
+import { debounceTime } from 'rxjs';
+import { ModalComponent } from "../../shared/components/modal/modal.component";
+import { FiltroFilmesComponent } from '../../shared/components/filtro-filmes/filtro-filmes.component';
+import { FiltroDTO } from '../../core/interfaces/filtroDTO';
 
 @Component({
   selector: 'app-home',
-  imports: [CardFilmeComponent, ReactiveFormsModule],
+  imports: [CardFilmeComponent, ReactiveFormsModule, ModalComponent, FiltroFilmesComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
   items: FilmeSerieDTO[] = [];
+  isModalOpen: boolean = false;
   totalAvaliacoes!: number;
   totalCurtidas!: number;
   totalDescurtidas!: number;
+  errorMsg: string | null = null;
 
   private filmeService = inject(FilmeService);
-  private formBuilder = inject(FormBuilder);
 
-  form = this.formBuilder.group({
-    search: ['']
-  });
 
   constructor() {
     this.getRegistros();
     this.getTotalAvaliacoes();
-
-    this.form.valueChanges.pipe(debounceTime(300)).subscribe((value) => {
-      const searchTerm = value.search?.trim().toLowerCase();
-
-      if (searchTerm) {
-        this.filmeService.filtro(searchTerm).subscribe((response) => {
-          this.items = response;
-        });
-      }
-
-      else
-        this.getRegistros();
-    });
   }
 
   getRegistros() {
     this.filmeService.get().subscribe((response) => {
+      this.items = response;
+    });
+  }
+
+  filtro(filtro: FiltroDTO) {
+    this.filmeService.filtro(filtro).subscribe((response) => {
       this.items = response;
     });
   }
@@ -60,5 +54,17 @@ export class HomeComponent {
     this.filmeService.getTotalDescurtidas().subscribe((response) => {
       this.totalDescurtidas = response;
     });
+  }
+
+  resetarVotos() {
+    this.filmeService.resetVotos().subscribe({
+      next: () => {
+        this.isModalOpen = false;
+        window.location.reload();
+      },
+      error: () => {
+        this.errorMsg = 'Erro ao resetar os votos, tente novamente.';
+      }
+    })
   }
 }

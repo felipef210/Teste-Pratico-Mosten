@@ -31,7 +31,7 @@ MoviesMostenAPP/   # Frontend Angular
 - **Migrations** para versionamento do banco.
 
 ### Frontend (MoviesMostenAPP)
-- **Angular**;
+- **Angular 19**;
 - **Componentização** para reuso de UI;
 - **Serviços** para integração com a API.
 

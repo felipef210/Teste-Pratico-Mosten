@@ -12,11 +12,6 @@ h2 {
   color: #803DE0;
 }
 
-form {
-  text-align: center;
-  margin-top: 2rem;
-}
-
 span {
   display: block;
   font-size: 1.2rem;
@@ -27,27 +22,12 @@ span:not(:first-child) {
   margin-top: 0.5rem;
 }
 
-form input {
-  width: 25rem;
-  padding: 10px;
-  border-radius: 1rem;
-  font-size: 16px;
-  border: 2px solid #803DE0;
-  box-shadow: 0 4px 20px 0 rgba(98, 44, 181, 0.35), 0 1.5px 8px 0 rgba(0,0,0,0.18);
-  background-image: url('/lupa.png');
-  background-position: right 10px center;
-  background-size: 30px 30px;
-  background-repeat: no-repeat;
-}
-
-form input:focus {
-  border-color: #803DE0;
-  outline: none;
-}
-
 .avaliacoes {
-  margin: 2rem auto 0;
+  margin: 1.5rem auto 0;
+}
 
+.filtro {
+  margin: 1.5rem auto 0 auto;
 }
 
 .cards {
@@ -55,6 +35,20 @@ form input:focus {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+}
+
+.btn-reset-section {
+  margin: 1.5rem auto;
+}
+
+.btn-reset-section button {
+  background-color: red;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: .8rem;
+  padding: .5rem 1rem;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -72,10 +66,6 @@ form input:focus {
 
   h2 {
     font-size: 1.3rem;
-  }
-
-  form input {
-    width: 80%;
   }
 
   .cards {

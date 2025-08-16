@@ -40,6 +40,9 @@ public class FilmeSerieController : ControllerBase
             .ProjectTo<FilmeSerieDTO>(_mapper.ConfigurationProvider)
             .FirstOrDefaultAsync(fs => fs.Id == id);
 
+        if (filmeSerie.Gostei + filmeSerie.NaoGostei != 0)
+            filmeSerie!.Aprovacao = Math.Round(((Convert.ToDecimal(filmeSerie.Gostei) / Convert.ToDecimal(filmeSerie.Gostei + filmeSerie.NaoGostei)) * 100), 2);
+
         if (filmeSerie is null)
             return NotFound("Registro não encontrado");
 
@@ -47,16 +50,26 @@ public class FilmeSerieController : ControllerBase
     }
 
     [HttpGet("filtro")]
-    public async Task<ActionResult<List<FilmeSerieDTO>>> GetFiltered(string titulo)
+    public async Task<ActionResult<List<FilmeSerieDTO>>> GetFiltered([FromQuery]FiltroDTO filtro)
     {
         var query = _context.FilmeSeries.AsQueryable();
 
-        if (!string.IsNullOrEmpty(titulo))
-            query = query.Where(fs => fs.Titulo.ToLower().Contains(titulo.ToLower()));
+        if (!string.IsNullOrEmpty(filtro.Titulo))
+            query = query.Where(fs => fs.Titulo.ToLower().Contains(filtro.Titulo.ToLower()));
+
+        if (!string.IsNullOrEmpty(filtro.Genero))
+            query = query.Where(fs => fs.Genero.Contains(filtro.Genero));
+
+        if (filtro.TopAvaliacoes)
+            query = query.OrderByDescending(fs => fs.Gostei)
+                         .ThenBy(fs => fs.NaoGostei)
+                         .ThenBy(fs => fs.Titulo);
+
+        else
+            query = query.OrderBy(fs => fs.Titulo);
 
         var resultado = await query
             .ProjectTo<FilmeSerieDTO>(_mapper.ConfigurationProvider)
-            .OrderBy(fs => fs.Titulo)
             .ToListAsync();
 
         return Ok(resultado);
@@ -138,6 +151,21 @@ public class FilmeSerieController : ControllerBase
         filmeSerie.NaoGostei += 1;
         await _context.SaveChangesAsync();
 
+        return Ok();
+    }
+
+    [HttpPost("reset-votos")]
+    public async Task<IActionResult> ResetVotos()
+    {
+        var filmesSeries = await _context.FilmeSeries.ToListAsync();
+
+        foreach (var filmeSerie in filmesSeries)
+        {
+            filmeSerie.Gostei = 0;
+            filmeSerie.NaoGostei = 0;
+        }
+
+        await _context.SaveChangesAsync();
         return Ok();
     }
 }
